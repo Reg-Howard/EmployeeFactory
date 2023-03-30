@@ -1,4 +1,4 @@
-package com.sparta.room3;
+package com.sparta.room3.model;
 
 public interface BinaryTree {
 

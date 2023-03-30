@@ -1,4 +1,4 @@
-package com.sparta.room3;
+package com.sparta.room3.model;
 
 import java.io.*;
 import java.util.*;

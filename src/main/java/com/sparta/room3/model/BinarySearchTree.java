@@ -1,4 +1,4 @@
-package com.sparta.binarySearchTreeProject;
+package com.sparta.room3.model;
 
 public class BinarySearchTree implements BinaryTree{
     BinarySearchTree parent;
