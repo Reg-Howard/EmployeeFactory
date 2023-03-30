@@ -1,4 +1,4 @@
-package com.sparta.binarySearchTreeProject;
+package com.sparta.room3;
 
 public interface BinaryTree {
 
