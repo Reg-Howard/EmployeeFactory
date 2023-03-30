@@ -99,5 +99,41 @@ public class BinarySearchTree<T extends Comparable<T>>
 //            return(node);
         }
     }
-
+    /*
+      The following is a description for the methods of insertion to the tree. Because this data is being entered in a
+      recursive manner we have created 2 methods for doing so. There will be an initial method called by the user through
+      the interface. As usual, we will begin by checking if the tree is empty, if it is then we create a new tree and if
+      not then we will call the recursive method to be added with both the data to be added and the root node referenced.
+      This method will also return itself which will allow us to recursively add new data but is not mandatory for the
+      functionality. The other method will be a helper method that takes the node and a data item, (being the data item
+      that will be added to the tree). The aim of this tree method is to hop between the left child and the right child
+      nodes based on the comparison data returned from comparing the data we want to add to each stage of the tree to see
+      if we want to move left or right down the tree.
+    */
+    @Override
+    public BinaryTree<T> insert(T data) {
+        if (isEmpty()){
+            root = new Node<>(data);
+        } else {
+            insert(data, root);
+        }
+        return this;
+    }
+    private void insert(T data, Node<T> node){
+        if (data.compareTo(node.getData()) < 0) {
+            if (node.getLeftChild() == null){
+                Node<T> newNode = new Node<>(data);
+                node.setLeftChild(newNode);
+            } else {
+                insert(data, node.getLeftChild());
+            }
+        } else if (data.compareTo(node.getData()) > 0){
+            if (node.getRightChild() == null){
+                Node<T> newNode = new Node<>(data);
+                node.setRightChild(newNode);
+            } else {
+                insert(data, node.getRightChild());
+            }
+        }
+    }
 }
