@@ -1,28 +1,36 @@
 package com.sparta.room3.model;
 
-public interface BinaryTree {
+public interface BinaryTree<T extends Comparable<T>> {
 
-        int getRootElement();
+        BinaryTree<T> insert(T data);                                                            // Still Needs Writing
+        void deleteNode(T data);                                                                // Still Needs Writing
+        void traverseTree();
+        T getMaxValue();
+        T getMinValue();
+        boolean isEmpty();
+        //should
+
+        BinarySearchTree.Node getRootElement();
         //should return the root node of the tree
 
-        int getNumberOfElements();
+        int getNumberOfElements();                                                              // Still Needs Writing
         //should traverse through the tree, using either method (Ascending or Descending) order
         //and return the total count of nodes traversed
 
-        void addElement(int element);//should add element in the correct node accordingly
+        void addElement(int element);//should add element in the correct node accordingly       // Still Needs Writing
         //-->should traverse through the tree and find the correct node to add element
         //eg. start by traversing either through left child node if the element is less than current
         // node or traversing to the right child node if the element is greater than the current node
 
-        void addElements(int[] elements);
+        void addElements(int[] elements);                                                       // Still Needs Writing
 
-        boolean findElement(int value);
+        boolean findElement(int value);                                                         // Still Needs Writing
 
-//       int getLeftChild(int element) throws ChildNotFoundException;
+//       int getLeftChild(int element) throws ChildNotFoundException;                           // Still Needs Writing
 
-//        int getRightChild(int element) throws ChildNotFoundException;
+//       int getRightChild(int element) throws ChildNotFoundException;                          // Still Needs Writing
 
-        int[] getSortedTreeAsc();
+        int[] getSortedTreeAsc();                                                               // Still Needs Writing
 
-        int[] getSortedTreeDesc();
+        int[] getSortedTreeDesc();                                                              // Still Needs Writing
     }
