@@ -140,11 +140,11 @@ public class BinarySearchTree<T extends Comparable<T>>
       Hooking up required addition methods.
     */
     @Override
-    public void addElement(int element){
+    public void addElement(T element){
 
     }
     @Override
-    public void addElements(int[] elements){
+    public void addElements(T[] elements){
 
     }
     /*
