@@ -1,38 +1,24 @@
 package com.sparta.room3.model;
 
+import java.util.List;
 
+public interface BinaryTree<T> {
 
-public interface BinaryTree<T extends Comparable<T>> {
+    Comparable<T> getRootElement();
 
-        BinaryTree<T> insertData(T data);
-        void traverseTree();
-        T getMaxValue();
+    int getNumberOfElements();
 
-        T getMinValue();
-        boolean isEmpty();
-        //should
+    void addElement(T element);
 
-        BinarySearchTree.Node getRootElement();
-        //should return the root node of the tree
+    void addElements(List<T> elements);
 
-        int getNumberOfElements();                                                              // Still Needs Writing
-        //should traverse through the tree, using either method (Ascending or Descending) order
-        //and return the total count of nodes traversed
+    T findElement(T value);
 
-        void addElement(T element);//should add element in the correct node accordingly       // Still Needs Writing - connect to insert
-        //-->should traverse through the tree and find the correct node to add element
-        //eg. start by traversing either through left child node if the element is less than current
-        // node or traversing to the right child node if the element is greater than the current node
+   // int getLeftChild(int element) throws ChildNotFoundException;
 
-        void addElements(T[] elements);                                                       // Still Needs Writing - connect to insert
+   // int getRightChild(int element) throws ChildNotFoundException;
 
-        boolean findElement(T value);                                                         // Still Needs Writing
+    Object[] getSortedTreeAsc();
 
-       T getLeftChild(T element) throws ChildNotFoundException;                           // Still Needs Writing
-
-       T getRightChild(T element) throws ChildNotFoundException;                          // Still Needs Writing
-
-        T[] getSortedTreeAsc();                                                               // Still Needs Writing
-
-        T[] getSortedTreeDesc();                                                              // Still Needs Writing
-    }
+    Object[] getSortedTreeDesc();
+}

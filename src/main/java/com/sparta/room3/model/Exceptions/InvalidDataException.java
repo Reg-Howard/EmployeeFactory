@@ -1,4 +1,4 @@
-package com.sparta.room3.model;
+package com.sparta.room3.model.Exceptions;
 
 public class InvalidDataException extends Exception{
     public InvalidDataException(){
