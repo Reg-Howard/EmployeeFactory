@@ -1,8 +1,10 @@
 package com.sparta.room3.model;
 
+
+
 public interface BinaryTree<T extends Comparable<T>> {
 
-        BinaryTree<T> insert(T data);
+        BinaryTree<T> insertData(T data);
         void traverseTree();
         T getMaxValue();
         T getMinValue();
@@ -25,11 +27,11 @@ public interface BinaryTree<T extends Comparable<T>> {
 
         boolean findElement(int value);                                                         // Still Needs Writing
 
-//       int getLeftChild(int element) throws ChildNotFoundException;                           // Still Needs Writing
+//       T getLeftChild(T element) throws ChildNotFoundException;                           // Still Needs Writing
 
-//       int getRightChild(int element) throws ChildNotFoundException;                          // Still Needs Writing
+//       T getRightChild(T element) throws ChildNotFoundException;                          // Still Needs Writing
 
-        int[] getSortedTreeAsc();                                                               // Still Needs Writing
+        T[] getSortedTreeAsc();                                                               // Still Needs Writing
 
-        int[] getSortedTreeDesc();                                                              // Still Needs Writing
+        T[] getSortedTreeDesc();                                                              // Still Needs Writing
     }

@@ -10,7 +10,7 @@ public class BinarySearchTree<T extends Comparable<T>>
         Then a nested node class has been created making it as generic as possible allowing for any type of input.
         Next an object called data is declared that again uses generic type. Followed by two objects that are the same
         type as the node class.
-     */
+      */
     @Data
     public class Node<T extends Comparable<T>> {
         @NonNull private T data;
@@ -21,7 +21,7 @@ public class BinarySearchTree<T extends Comparable<T>>
        First we declare a root object of the same type as the class.
        Then we have overridden the isEmpty method and returned true based on the new root object's content.
        Followed by the overridden getRootElement which returns the value of root
-    */
+     */
     private Node<T> root;
 
     @Override
@@ -37,7 +37,7 @@ public class BinarySearchTree<T extends Comparable<T>>
        Then assuming the minimum value is stored on the far left side of the tree, which a sorted binary tree should be,
        we can then continuously iterate down the left value of the tree until a null value is returned, in other words we
        have reached the end fo the tree. At this point we know we have found our smallest node. This data is then returned.
-    */
+     */
     @Override
     public T getMinValue() {
         if (isEmpty()) {
@@ -68,7 +68,7 @@ public class BinarySearchTree<T extends Comparable<T>>
        at root. InOrder traversal works by first checking that node is not empty. After this we first check the value of
        the left node, then the center node and then the right node to get them in value order. However, we need to check
        for child nodes of those nodes. To do this we recursively call the same traverse method on each of the child nodes.
-     */
+      */
     @Override
     public void traverseTree() {
         traverseInOrder(root);
@@ -100,7 +100,7 @@ public class BinarySearchTree<T extends Comparable<T>>
         }
     }
     /*
-      The following is a description for the methods of insertion to the tree. Because this data is being entered in a
+      The following is a description for the methods of insertDataion to the tree. Because this data is being entered in a
       recursive manner we have created 2 methods for doing so. There will be an initial method called by the user through
       the interface. As usual, we will begin by checking if the tree is empty, if it is then we create a new tree and if
       not then we will call the recursive method to be added with both the data to be added and the root node referenced.
@@ -109,31 +109,73 @@ public class BinarySearchTree<T extends Comparable<T>>
       that will be added to the tree). The aim of this tree method is to hop between the left child and the right child
       nodes based on the comparison data returned from comparing the data we want to add to each stage of the tree to see
       if we want to move left or right down the tree.
-    */
+     */
     @Override
-    public BinaryTree<T> insert(T data) {
+    public BinaryTree<T> insertData(T data) {
         if (isEmpty()){
             root = new Node<>(data);
         } else {
-            insert(data, root);
+            insertData(data, root);
         }
         return this;
     }
-    private void insert(T data, Node<T> node){
+    private void insertData(T data, Node<T> node){
         if (data.compareTo(node.getData()) < 0) {
             if (node.getLeftChild() == null){
                 Node<T> newNode = new Node<>(data);
                 node.setLeftChild(newNode);
             } else {
-                insert(data, node.getLeftChild());
+                insertData(data, node.getLeftChild());
             }
         } else if (data.compareTo(node.getData()) > 0){
             if (node.getRightChild() == null){
                 Node<T> newNode = new Node<>(data);
                 node.setRightChild(newNode);
             } else {
-                insert(data, node.getRightChild());
+                insertData(data, node.getRightChild());
             }
         }
     }
+    /*
+      Hooking up required addition methods.
+    */
+    @Override
+    public void addElement(int element){
+
+    }
+    @Override
+    public void addElements(int[] elements){
+
+    }
+    /*
+      Still to be implemented:
+     */
+//    @Override
+//    public int getNumberOfElements(){
+//        int total = 0;
+//        return total;
+//    }
+//    @Override
+//    public boolean findElement(int value){
+//        return;
+//    }
+//    @Override
+//    public T[] getSortedTreeAsc(){
+//        return;
+//    }
+//    @Override
+//    public T[] getSortedTreeDesc(){
+//        return;
+//    }
+    /*
+      Additional implement requirements:
+     */
+//    @Override
+//    public T getLeftChild(T element) throws ChildNotFoundException{
+//        return;
+//    }
+//    @Override
+//    public T getRightChild(T element) throws ChildNotFoundException{
+//        return;
+//    }
 }
