@@ -1,49 +1,60 @@
 package com.sparta.room3.model;
 
-public class Employee {
-    private final String emp_no;
-    private final String birth_date;
-    private final String first_name;
-    private final String last_name;
+public class Employee implements Comparable {
+    private final int employeeNumber;
+    private final String birthDate;
+    private final String firstName;
+    private final String lastName;
     private final String gender;
-    private final String hire_date;
+    private final String hireDate;
 
     public Employee(String employeeData) {
         String[] data = employeeData.split(",");
-        emp_no = data[0];
-        birth_date = data[7];
-        first_name = data[2];
-        last_name = data[4];
+        employeeNumber = Integer.parseInt(data[0]);
+        birthDate = data[7];
+        firstName = data[2];
+        lastName = data[4];
         gender = data[5];
-        hire_date = data[8];
+        hireDate = data[8];
     }
 
-    public String getEmp_no() {
-        return emp_no;
+    public int getEmployeeNumber() {
+        return employeeNumber;
     }
 
-    public String getBirth_date() {
-        return birth_date;
+    public String getBirthDate() {
+        return birthDate;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
     public String getGender() {
         return gender;
     }
 
-    public String getHire_date() {
-        return hire_date;
+    public String getHireDate() {
+        return hireDate;
     }
 
     @Override
     public String toString() {
-        return emp_no + ", " + birth_date + ", " + first_name + ", " + last_name + ", " + gender + ", " + hire_date ;
+        return employeeNumber + ", " + birthDate + ", " + firstName + ", " + lastName + ", " + gender + ", " + hireDate ;
+    }
+
+    @Override //compare based off of last name first, and then first name if last names are the same
+    public int compareTo(Object o) {
+        Employee obj = (Employee) o;
+        int value = this.lastName.compareTo(obj.lastName);
+        if(value == 0){
+            return this.firstName.compareTo(obj.firstName);
+        }else{
+            return value;
+        }
     }
 }
