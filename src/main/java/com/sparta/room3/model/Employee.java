@@ -8,8 +8,18 @@ public class Employee implements Comparable {
     private final String gender;
     private final String hireDate;
 
-    public Employee(String employeeData) {
-        String[] data = employeeData.split(",");
+    public Employee(String employeeData) throws InvalidDataException{
+            String[] data = employeeData.split(",");
+            if(data.length < 10 ||
+                    data[0].length() == 0 ||
+                    data[2].length() == 0 ||
+                    data[7].length() == 0 ||
+                    data[4].length() == 0 ||
+                    data[5].length() == 0 ||
+                    data[8].length() == 0
+    ){
+          throw new InvalidDataException();
+        }
         employeeNumber = Integer.parseInt(data[0]);
         birthDate = data[7];
         firstName = data[2];
@@ -50,10 +60,14 @@ public class Employee implements Comparable {
     @Override //compare based off of last name first, and then first name if last names are the same
     public int compareTo(Object o) {
         Employee obj = (Employee) o;
+
         int value = this.lastName.compareTo(obj.lastName);
-        if(value == 0){
+        if(value == 0){//if the last name is the same
+            //compares the first names if last name is the same
+            //if this.firstName is before obj.firstName alphabetically then return negative
             return this.firstName.compareTo(obj.firstName);
         }else{
+            //if this.lastName is before obj.lastName alphabetically then return negative
             return value;
         }
     }

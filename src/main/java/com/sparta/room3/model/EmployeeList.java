@@ -1,6 +1,7 @@
 package com.sparta.room3.model;
 
 import java.util.*;
+import org.apache.logging.log4j.*;
 
 public class EmployeeList {
     private final List<Employee> employees;
@@ -9,11 +10,11 @@ public class EmployeeList {
         employees = new ArrayList<Employee>();
     }
 
-    public EmployeeList(String[] employeeData){
+    public EmployeeList(String[] employeeData) throws InvalidDataException{
         employees = new ArrayList<>();
-        Arrays.stream(employeeData)
-                .map(Employee::new)
-                .forEach(this::addEmployee);
+        for(String individual : employeeData){
+            employees.add(new Employee(individual));
+        }
     }
 
     public Employee getEmployee(int i){
@@ -25,8 +26,8 @@ public class EmployeeList {
     }
 
     public void addEmployee(Employee employee) {
-        employees.add(employee);
-    }
+        if(employee == null) throw new NullPointerException("Null Pointer Exception. Please enter valid data.");
+        employees.add(employee); }
 
     public void printEmployees() {
         employees.forEach(System.out::println);
@@ -58,7 +59,6 @@ public class EmployeeList {
             s.append("\"hireDate\":\"");
             s.append(employee.getHireDate());
             s.append("\"\n");
-
             s.append("}");
             if(i != employees.size() - 1)
                 s.append(",");
