@@ -1,9 +1,8 @@
 package com.sparta.room3;
 
+import com.sparta.room3.model.Exceptions.InvalidDataException;
 import com.sparta.room3.model.*;
 import org.junit.jupiter.api.*;
-
-import java.io.IOException;
 
 public class EmployeeFactoryChecks {
     static private String[] genericSampleData;

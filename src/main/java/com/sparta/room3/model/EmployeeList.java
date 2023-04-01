@@ -1,7 +1,8 @@
 package com.sparta.room3.model;
 
 import java.util.*;
-import org.apache.logging.log4j.*;
+
+import com.sparta.room3.model.Exceptions.InvalidDataException;
 
 public class EmployeeList {
     private final List<Employee> employees;
@@ -10,7 +11,7 @@ public class EmployeeList {
         employees = new ArrayList<Employee>();
     }
 
-    public EmployeeList(String[] employeeData) throws InvalidDataException{
+    public EmployeeList(String[] employeeData) throws InvalidDataException {
         employees = new ArrayList<>();
         for(String individual : employeeData){
             employees.add(new Employee(individual));
