@@ -215,8 +215,9 @@ public class EmployeeFactoryChecks {
         Employee employeeFive = new Employee("198429,Mrs.,A,I,A,F,serafina.bumgarner@exxonmobil.com,9/21/1982,02/01/2008,69294");
         Assertions.assertTrue(employeeOne.compareTo(employeeTwo) < 0);
         Assertions.assertTrue(employeeFive.compareTo(employeeOne) == 0);
-        Assertions.assertTrue(employeeTwo.compareTo(employeeThree) > 0);
-        Assertions.assertTrue(employeeFour.compareTo(employeeOne) > 0);
+        Assertions.assertTrue(employeeTwo.compareTo(employeeThree) == 0);
+        Assertions.assertTrue(employeeFour.compareTo(employeeOne) == 0);
+        Assertions.assertTrue(employeeTwo.compareTo(employeeOne) > 0);
     }
 
     @Test /*TEST FOR Phase 3 - 3 / Use Case Undefined*/
