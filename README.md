@@ -5,8 +5,14 @@ Our repo contains a binary search tree (no balancing capabilities) that takes ad
 # Requirements to Run These Files:
 - JDK 8 or later
 - Maven
-- JVM 
-
+- JVM <br />
+#### Make sure to change the pom.xml to match the version of Java that your JVM supports (8 or later) and then run the following commands:
+```
+mvn install
+```
+```
+java -cp target/EmployeeFactory-1.0-SNAPSHOT.jar com.sparta.room3.controller.Main
+```
 # Project Roles: <br />
 - Scrum Lead: Reggie
 - GitHub Lead: Abu
@@ -64,7 +70,7 @@ Returns an Object array of all of the objects stored within the tree in decendin
 ## EmployeeTreeDecorator <br />
 [EmployeeTreeDecorator.java](https://github.com/bakar212/EmployeeFactory/blob/Dev-Branch/src/main/java/com/sparta/room3/model/EmployeeTreeDecorator.java) <br />
 Our EmployeeTreeDecorator is a class that we made because generics has some limitations which really gave us the choice between greatly limiting reusability of our BinarySearchTree class or using the Decorator design patter. We opted for the latter. Our decorator class employs all of the same public methods as the BinarySearchTree class, but delegates the heavy thinking to BinarySearchTree while giving us the return types and ease of use that our client requires. Take the findElement() method for example: <br />
-Inside of the BinarySearchTree class: <br />
+#### Inside of the BinarySearchTree class: <br />
 ```java
 public Comparable<T> findElement(T value) {
   return findElement(root, value);
