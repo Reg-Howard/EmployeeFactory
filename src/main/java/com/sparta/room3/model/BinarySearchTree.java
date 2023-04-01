@@ -1,12 +1,13 @@
 package com.sparta.room3.model;
 
+import com.sparta.room3.model.Exceptions.ChildNotFoundException;
+
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class BinarySearchTree<T extends Comparable> implements BinaryTree<T>{
 
-    private class Node<T extends Comparable>{
+    private static class Node<T extends Comparable>{
         private Node leftChildNode, rightChildNode;
         private T value;
 
@@ -37,7 +38,7 @@ public class BinarySearchTree<T extends Comparable> implements BinaryTree<T>{
 
     }
     Node<T> root;
-    int childCount = 0;
+    private int childCount = 0;
 
     public BinarySearchTree(){
 
@@ -99,9 +100,50 @@ public class BinarySearchTree<T extends Comparable> implements BinaryTree<T>{
     }
 
     @Override
-    public T findElement(T value) {
+    public Comparable<T> findElement(T value) {
         return findElement(root, value);
     }
+
+    private Comparable<T> findElement(Node node, T value){
+        node = findNodeByElement(node, value);
+        return  node == null ? null : node.getValue();
+    }
+
+    @Override
+    public T getLeftChild(T element) throws ChildNotFoundException {
+        Node<T> node = findNodeByElement(root, element);
+        if(node == null) throw new ChildNotFoundException("No node found for given input");
+        node = node.getLeftChildNode();
+        if(node == null) throw new ChildNotFoundException("No left Child Node found");
+        return node.getValue();
+    }
+
+    @Override
+    public T getRightChild(T element) throws ChildNotFoundException {
+        Node<T> node = findNodeByElement(root, element);
+        if(node == null) throw new ChildNotFoundException("No node found for given input");
+        node = node.getRightChildNode();
+        if(node == null) throw new ChildNotFoundException("No left Child Node found");
+        return node.getValue();
+    }
+
+    private Node<T> findNodeByElement(Node node, T value){
+        Comparable<T> nodeValue =  node.getValue();
+        if (value.compareTo(nodeValue) > 0) {
+            if (node.getRightChildNode() != null) {
+                return findNodeByElement(node.getRightChildNode(), value);
+            }
+        } else if(value.compareTo(nodeValue) < 0) {
+            if (node.getLeftChildNode() != null) {
+                return findNodeByElement(node.getLeftChildNode(), value);
+            }
+        }else{
+            return node;
+        }
+        return null;
+    }
+
+
 
     public Object[] findElements(T value){
         return findElements(root, value, new ArrayList<>());
@@ -125,24 +167,6 @@ public class BinarySearchTree<T extends Comparable> implements BinaryTree<T>{
         }
         return list.toArray();
     }
-
-    private T findElement(Node node, T value){
-        Comparable<T> nodeValue =  node.getValue();
-        if (value.compareTo(nodeValue) > 0) {
-            if (node.getRightChildNode() != null) {
-                findElement(node.getRightChildNode(), value);
-            }
-        } else if(value.compareTo(nodeValue) < 0) {
-            if (node.getLeftChildNode() != null) {
-                findElement(node.getLeftChildNode(), value);
-            }
-        }else{
-            return (T) nodeValue;
-        }
-        return null;
-    }
-
-
 
     @Override
     public Object[] getSortedTreeAsc() {
