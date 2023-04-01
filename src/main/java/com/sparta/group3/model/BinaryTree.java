@@ -1,6 +1,6 @@
-package com.sparta.room3.model;
+package com.sparta.group3.model;
 
-import com.sparta.room3.model.Exceptions.ChildNotFoundException;
+import com.sparta.group3.model.Exceptions.ChildNotFoundException;
 
 import java.util.List;
 

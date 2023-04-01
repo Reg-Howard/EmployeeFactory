@@ -1,4 +1,4 @@
-# EmployeeFactory - Room 3
+# EmployeeFactory - Group 3
 # Description Summary for the Repository:
 Our repo contains a binary search tree (no balancing capabilities) that takes advantage of generics and can accept any object that implements the comparable interface. We were given a class that assists us with loading values from a CSV that we could then use to generate Employee objects. Our employee class was fitted up with the Comparable interface so that we could use it with our binary search tree. To meet our requirements of having our tree return an array of Employee object when asked for a sorted array we also took advantage of the Decorator design pattern. Our decorator design pattern class allows us to more seamlessly use our Employee objects with the tree, now rather than having to pass an employee object we can pass a String that simply contains the lastName of an employee to fetch their object from the tree, another detail abstracted away would be conversions from Object[] to Employee[]. 
 
@@ -11,7 +11,7 @@ Our repo contains a binary search tree (no balancing capabilities) that takes ad
 mvn install
 ```
 ```
-java -cp target/EmployeeFactory-1.0-SNAPSHOT.jar com.sparta.room3.controller.Main
+java -cp target/EmployeeFactory-1.0-SNAPSHOT.jar com.sparta.group3.controller.Main
 ```
 # Project Roles: <br />
 - Scrum Lead: Reggie

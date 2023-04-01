@@ -1,8 +1,4 @@
-package com.sparta.room3;
-
-import com.sparta.room3.model.EmployeeFactory;
-import org.junit.jupiter.api.*;
-import java.io.IOException;
+package com.sparta.group3;
 
 public class BSTChecks {
 

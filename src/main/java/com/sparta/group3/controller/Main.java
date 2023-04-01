@@ -1,9 +1,9 @@
-package com.sparta.room3.controller;
+package com.sparta.group3.controller;
 
 
 
-import com.sparta.room3.model.*;
-import com.sparta.room3.model.Exceptions.InvalidDataException;
+import com.sparta.group3.model.*;
+import com.sparta.group3.model.Exceptions.InvalidDataException;
 
 import java.io.IOException;
 import java.util.List;
