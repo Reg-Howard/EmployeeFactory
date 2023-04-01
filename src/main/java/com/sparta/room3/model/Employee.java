@@ -11,16 +11,16 @@ public class Employee implements Comparable {
     private final String hireDate;
 
     public Employee(String employeeData) throws InvalidDataException {
-            String[] data = employeeData.split(",");
-            if(data.length < 10 ||
-                    data[0].length() == 0 ||
-                    data[2].length() == 0 ||
-                    data[7].length() == 0 ||
-                    data[4].length() == 0 ||
-                    data[5].length() == 0 ||
-                    data[8].length() == 0
-    ){
-          throw new InvalidDataException();
+        String[] data = employeeData.split(",");
+        if(data.length < 10 ||
+                data[0].length() == 0 ||
+                data[2].length() == 0 ||
+                data[7].length() == 0 ||
+                data[4].length() == 0 ||
+                data[5].length() == 0 ||
+                data[8].length() == 0
+        ){
+            throw new InvalidDataException();
         }
         employeeNumber = Integer.parseInt(data[0]);
         birthDate = data[7];
@@ -65,4 +65,5 @@ public class Employee implements Comparable {
 
         return this.lastName.compareTo(obj.lastName);
     }
+
 }

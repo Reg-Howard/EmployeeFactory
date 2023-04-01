@@ -1,5 +1,7 @@
 package com.sparta.room3.model;
 
+import com.sparta.room3.model.Exceptions.ChildNotFoundException;
+
 import java.util.List;
 
 public interface BinaryTree<T> {
@@ -12,11 +14,11 @@ public interface BinaryTree<T> {
 
     void addElements(List<T> elements);
 
-    T findElement(T value);
+    Comparable<T> findElement(T value);
 
-   // int getLeftChild(int element) throws ChildNotFoundException;
+    T getLeftChild(T element) throws ChildNotFoundException;
 
-   // int getRightChild(int element) throws ChildNotFoundException;
+    T getRightChild(T element) throws ChildNotFoundException;
 
     Object[] getSortedTreeAsc();
 
