@@ -1,34 +1,92 @@
 # EmployeeFactory - Room 3
 # Description Summary for the Repository:
-Words...
+Our repo contains a binary search tree (no balancing capabilities) that takes advantage of generics and can accept any object that implements the comparable interface. We were given a class that assists us with loading values from a CSV that we could then use to generate Employee objects. Our employee class was fitted up with the Comparable interface so that we could use it with our binary search tree. To meet our requirements of having our tree return an array of Employee object when asked for a sorted array we also took advantage of the Decorator design pattern. Our decorator design pattern class allows us to more seamlessly use our Employee objects with the tree, now rather than having to pass an employee object we can pass a String that simply contains the lastName of an employee to fetch their object from the tree, another detail abstracted away would be conversions from Object[] to Employee[]. 
 
 # Requirements to Run These Files:
-Words...
+- JDK 8 or later
+- Maven
+- JVM 
 
-# Project Roles:
-Scrum Lead - Reggie,
-GitHub Lead - Abu,
-Dev/tester - Nick,
-Dev/tester - Greg,
-Dev/tester - Usman,
-Dev/tester - Ajay.
+# Project Roles: <br />
+- Scrum Lead: Reggie
+- GitHub Lead: Abu
+- Dev/tester: Nick
+- Dev/tester: Greg
+- Dev/tester: Usman
+- Dev/tester: Ajay
 
 # Details of the Major Sections Functionality
-Words...
+## BinarySearchTree: <br />
+[BinarySearchTree.java](https://github.com/bakar212/EmployeeFactory/blob/Dev-Branch/src/main/java/com/sparta/room3/model/BinarySearchTree.java) <br />
+Our binary search tree accepts and sorts any object that implements the Comparable interface. It has three constructors, one with no parameters, one that allows specification of the root node's value, and then one that just takes a list of objects. <br>
+#### In terms of setter methods we have:
+```java
+addElement(T element);
+```
+If the root node has no value the object passed in will fill the root node, otherwise recursion will take care of placing it in our tree structure.
+```java
+addElements(List<T> elements);
+```
+If the root node has no value the first in the list will fill the root node. All other objects in the list will be placed recursively in our tree structure.
+#### we also have a wide array of getter methods:
+```java
+public Comparable<T> getRootElement();
+```
+Gets the root element
+```java
+public int getNumberOfElements();
+```
+Returns the number of objects stored within the tree
+```java
+public Comparable<T> findElement(T value);
+```
+Returns an element if there is a match
+```java
+public Object[] findElements(T value);
+```
+Returns all matched elements
+```java
+public T getLeftChild(T element);
+```
+If a match is found for the given element it returns the value of the child node that is considered to be "less than" the matched element if it exists. If there is no child then a ChildNotFoundException is thrown.
+```java
+public T getRightChild(T element);
+```
+If a match is found for the given element it returns the value of the child node that is considered to be "greater than" the matched element if it exists. If there is no child then a ChildNotFoundException is thrown.
+```java
+public Object[] getSortedTreeAsc();
+```
+Returns an Object array of all of the objects stored within the tree in ascending order.
+```java
+public Object[] getSortedTreeDesc();
+```
+Returns an Object array of all of the objects stored within the tree in decending order.
+## EmployeeTreeDecorator <br />
+[EmployeeTreeDecorator.java](https://github.com/bakar212/EmployeeFactory/blob/Dev-Branch/src/main/java/com/sparta/room3/model/EmployeeTreeDecorator.java) <br />
+Our EmployeeTreeDecorator is a class that we made because generics has some limitations which really gave us the choice between greatly limiting reusability of our BinarySearchTree class or using the Decorator design patter. We opted for the latter. Our decorator class employs all of the same public methods as the BinarySearchTree class, but delegates the heavy thinking to BinarySearchTree while giving us the return types and ease of use that our client requires. Take the findElement() method for example: <br />
+Inside of the BinarySearchTree class: <br />
+```java
+public Comparable<T> findElement(T value) {
+  return findElement(root, value);
+}
+```
 
-Employee Factory Design Patter
--
-Words...
+It requires an object to find an element and our client wanted to be able to query for an employee while simply using the last name property of the Employee class. <br />
+Inside of EmployeeTreeDecorator class:
+```java
+public Employee findElement(String value) {
+    try {
+        Employee employee = new Employee("178566,Mrs.,Juliette,M," + value + ",F,juliette.rojo@yahoo.co.uk,05/08/1967,06/04/2011,193912");
+        return (Employee) tree.findElement(employee);
+    }catch(InvalidDataException e){
+        e.printStackTrace();
+        return null;
+    }
+}
+```
 
-Binary Search Tree - BST
--
-Words...
-
-# User Manual
-Words...
-
-# Summary of Testing
-Words...
-
-# Glossary of Technical Concepts
-Words...
+# Summary of Testing <br />
+We used JUnit 5 in our program to unit test our classes. We primarily focused on the getters and setters of every class that we created, but we also made sure to check that exceptions are thrown where they should be. <br />
+You can see all of our tests here: [test package](https://github.com/bakar212/EmployeeFactory/tree/Dev-Branch/src/test/java/com/sparta/room3) <br />
+# Glossary of Technical Concepts <br />
+[docs.oracle.com Generics](https://docs.oracle.com/javase/tutorial/java/generics/index.html), [refactoring.guru Decorator Design Pattern](https://refactoring.guru/design-patterns/decorator), [docs.oracle.com Nested Classes](https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html), [JUnit 5](https://junit.org/junit5/), [Maven](https://maven.apache.org/), [docs.oracle.com Scanner](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html)
