@@ -3,10 +3,13 @@ package com.sparta.group3;
 import com.sparta.group3.model.Exceptions.InvalidDataException;
 import com.sparta.group3.model.*;
 import org.junit.jupiter.api.*;
+import java.util.List;
 
 public class EmployeeFactoryChecks {
     static private String[] genericSampleData;
     static private Employee genericTestEmployee;
+    static private Employee genericTestEmployee2;
+    static private Employee genericTestEmployee3;
     @BeforeAll
     static void gimmeSomeSampleDataPlz(){
         genericSampleData = new String[] {
@@ -20,6 +23,18 @@ public class EmployeeFactoryChecks {
         try {
             genericTestEmployee = new Employee("198429,Mrs.,Serafina,I,Bumgarner,F," +
                     "serafina.bumgarner@exxonmobil.com,9/21/1982,02/01/2008,69294");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        try {
+            genericTestEmployee2 = new Employee("811306,Mr.,Rhett,P,Wan,M," +
+                    "rhett.wan@hotmail.com,7/14/1976,1/21/2009,59406");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        try {
+            genericTestEmployee3 = new Employee("847634,Mr.,Elmer,R,Jason,M," +
+                    "elmer.jason@yahoo.com,04/09/1996,5/28/2017,93504");
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -225,5 +240,74 @@ public class EmployeeFactoryChecks {
     void checkThatTheGetEmployeeMethodOfTheEmployeeListGetsTheCorrectEmployee()throws InvalidDataException{
         EmployeeList list = new EmployeeList(genericSampleData);
         Assertions.assertEquals(list.getEmployee(2).getEmployeeNumber(), Integer.parseInt("647173"));
+    }
+
+    /*
+    Testing for EmployeeTreeDecorator
+     */
+    EmployeeTreeDecorator sampleETD;
+    @BeforeEach
+    void setSampleETD() {
+        try {
+        EmployeeList list = new EmployeeList(genericSampleData);
+        BinarySearchTree tree = new BinarySearchTree(List.of(list.getEmployees()));
+        sampleETD = new EmployeeTreeDecorator(tree);
+        } catch (Exception e){
+            sampleETD = null;
+        };
+    }
+
+    @Test
+    @DisplayName("Null will be returned when an exception will be thrown in the getLeftChildValue method with property data")
+    void nullWillBeReturnedWhenAnExceptionWillBeThrownInTheGetLeftChildValueMethodWithPropertyData() {
+        Assertions.assertEquals(null,sampleETD.getLeftChildValue(""));
+    }
+    @Test
+    @DisplayName("Check that left child value is returned when getLeftChildValue method is run with property data")
+    void checkThatLeftChildValueIsReturnedWhenGetLeftChildValueMethodIsRunWithPropertyData() {
+        Assertions.assertEquals(Employee.class, sampleETD.getLeftChildValue("Rojo").getClass());
+    }
+    @Test
+    @DisplayName("Null will be returned when an exception will be thrown in the getLeftChildValue method with object data")
+    void nullWillBeReturnedWhenAnExceptionWillBeThrownInTheGetLeftChildValueMethodWithObjectData() {
+        Assertions.assertEquals(null,sampleETD.getLeftChildValue(genericTestEmployee));
+    }
+    @Test
+    @DisplayName("Check that left child value is returned when getLeftChildValue method is run with object data")
+    void checkThatLeftChildValueIsReturnedWhenGetLeftChildValueMethodIsRunWithObjectData() {
+        Assertions.assertEquals(Employee.class,sampleETD.getLeftChildValue(genericTestEmployee3).getClass());
+    }
+
+
+    @Test
+    @DisplayName("Null will be returned when an exception will be thrown in the getRightChildValue method with property data")
+    void nullWillBeReturnedWhenAnExceptionWillBeThrownInTheGetRightChildValueMethodWithPropertyData() {
+        Assertions.assertEquals(null,sampleETD.getRightChildValue(""));
+    }
+    @Test
+    @DisplayName("Check that right child value is returned when getRightChildValue method is run with property data")
+    void checkThatRightChildValueIsReturnedWhenGetRightChildValueMethodIsRunWithPropertyData() {
+        Assertions.assertEquals(Employee.class, sampleETD.getRightChildValue("Rojo").getClass());
+    }
+    @Test
+    @DisplayName("Null will be returned when an exception will be thrown in the getRightChildValue method with object data")
+    void nullWillBeReturnedWhenAnExceptionWillBeThrownInTheGetRightChildValueMethodWithObjectData() {
+        Assertions.assertEquals(null,sampleETD.getRightChildValue(genericTestEmployee2));
+    }
+    @Test
+    @DisplayName("Check that right child value is returned when getRightChildValue method is run with object data")
+    void checkThatRightChildValueIsReturnedWhenGetRightChildValueMethodIsRunWithObjectData() {
+        Assertions.assertEquals(Employee.class,sampleETD.getRightChildValue(genericTestEmployee).getClass());
+    }
+
+    @Test
+    @DisplayName("Check that the getSortedTreeDesc method returns an employee object")
+    void checkThatTheGetSortedTreeDescMethodReturnsAnEmployeeObject() {
+        Assertions.assertEquals(Employee.class,sampleETD.getSortedTreeDesc().getClass());
+    }
+    @Test
+    @DisplayName("Check that the getSortedTreeAsc method returns an employee object")
+    void checkThatTheGetSortedTreeAscMethodReturnsAnEmployeeObject() {
+        Assertions.assertEquals(Employee.class,sampleETD.getSortedTreeAsc().getClass());
     }
 }
