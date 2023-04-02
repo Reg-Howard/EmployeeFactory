@@ -57,7 +57,7 @@ public class EmployeeTreeDecorator {
     }
 
 
-    public Object[] getSortedTreeAsc() {
+    public Employee[] getSortedTreeAsc() {
         Object[] results = tree.getSortedTreeAsc();
         Employee[] employees = new Employee[results.length];
         System.arraycopy(results, 0, employees, 0, results.length);

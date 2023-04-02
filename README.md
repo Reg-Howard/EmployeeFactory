@@ -11,7 +11,7 @@ Our repo contains a binary search tree (no balancing capabilities) that takes ad
 mvn install
 ```
 ```
-java -cp target/EmployeeFactory-1.0-SNAPSHOT.jar com.sparta.group3.controller.Main
+java -cp target/EmployeeFactory-1.0-SNAPSHOT.jar com.sparta.group3.Main
 ```
 # Project Roles: <br />
 - Scrum Lead: Reggie
