@@ -69,6 +69,15 @@ Returns an Object array of all the objects stored within the tree in ascending o
 public Object[] getSortedTreeDesc();
 ```
 Returns an Object array of all the objects stored within the tree in descending order.
+## Employee Class <br />
+[EmployeeList.java](https://github.com/bakar212/EmployeeFactory/blob/Dev-Branch/src/main/java/com/sparta/group3/model/Employee.java) <br />
+class represents an individual employee object. It has private variables for employee number, birth date, first name, last name, gender, and hire date. The class has a constructor that takes employee data as a string and parses it to assign the values to the private variables. It throws an InvalidDataException if the input data is invalid.
+
+The class also has getters for each private variable and overrides the toString method to return formatted employee data. It also implements the Comparable interface to allow sorting of employees based on their last name and first name.
+
+##  Employee List Class <br />
+[EmployeeList.java](https://github.com/bakar212/EmployeeFactory/blob/Dev-Branch/src/main/java/com/sparta/group3/model/EmployeeList.java) <br />
+The EmployeeList class is a collection of Employee objects stored in an ArrayList. It provides methods to add, retrieve, and print employees, as well as a constructor that takes an array of strings and creates an Employee object for each string in the array. It also overrides the toString method to return a JSON representation of the list of employees. The EmployeeList class follows the Single Responsibility Principle (SRP) by encapsulating the logic related to storing and retrieving employees in a separate class, and also follows the Open-Closed Principle (OCP) by allowing for extension by providing public methods for adding and retrieving employees.
 ## EmployeeTreeDecorator <br />
 [EmployeeTreeDecorator.java](https://github.com/bakar212/EmployeeFactory/blob/Dev-Branch/src/main/java/com/sparta/room3/model/EmployeeTreeDecorator.java) <br />
 Our EmployeeTreeDecorator is a class that we made because generics has some limitations which really gave us the choice between greatly limiting re-usability of our BinarySearchTree class or using the Decorator design patter. We opted for the latter. Our decorator class employs all the same public methods as the BinarySearchTree class, but delegates the heavy thinking to BinarySearchTree while giving us the return types and ease of use that our client requires. Take the findElement() method for example: <br />
