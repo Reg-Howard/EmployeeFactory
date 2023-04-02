@@ -1,9 +1,13 @@
 package com.sparta.group3.model;
 
 import com.sparta.group3.model.Exceptions.InvalidDataException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.List;
 
 public class EmployeeTreeDecorator {
+    private static final Logger logger = LogManager.getLogger(EmployeeTreeDecorator.class);
     private BinarySearchTree<Employee> tree;
     public EmployeeTreeDecorator(BinarySearchTree<Employee> tree){
         this.tree = tree;
@@ -33,7 +37,7 @@ public class EmployeeTreeDecorator {
             Employee employee = new Employee("178566,Mrs.,Juliette,M," + value + ",F,juliette.rojo@yahoo.co.uk,05/08/1967,06/04/2011,193912");
             return (Employee) tree.findElement(employee);
         }catch(InvalidDataException e){
-            e.printStackTrace();
+            logger.debug(e.getMessage());
             return null;
         }
     }
@@ -49,7 +53,7 @@ public class EmployeeTreeDecorator {
             }
             return new Employee[]{};
         }catch(InvalidDataException e){
-            e.printStackTrace();
+            logger.debug(e.getMessage());
             return new Employee[]{};
         }
     }
@@ -73,6 +77,7 @@ public class EmployeeTreeDecorator {
         try {
             return tree.getRightChild(employee);
         }catch(Exception e){
+            logger.debug(e.getMessage());
             return null;
         }
     }
@@ -82,6 +87,7 @@ public class EmployeeTreeDecorator {
             Employee employee = new Employee("178566,Mrs.,Juliette,M," + employeeLastName + ",F,juliette.rojo@yahoo.co.uk,05/08/1967,06/04/2011,193912");
             return tree.getRightChild(employee);
         }catch(Exception e){
+            logger.debug(e.getMessage());
             return null;
         }
     }
@@ -90,6 +96,7 @@ public class EmployeeTreeDecorator {
         try {
             return tree.getLeftChild(employee);
         }catch(Exception e){
+            logger.debug(e.getMessage());
             return null;
         }
     }
@@ -99,6 +106,7 @@ public class EmployeeTreeDecorator {
             Employee employee = new Employee("178566,Mrs.,Juliette,M," + employeeLastName + ",F,juliette.rojo@yahoo.co.uk,05/08/1967,06/04/2011,193912");
             return tree.getLeftChild(employee);
         }catch(Exception e){
+            logger.debug(e.getMessage());
             return null;
         }
     }

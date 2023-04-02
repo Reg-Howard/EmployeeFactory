@@ -22,12 +22,34 @@ public class Employee implements Comparable {
         ){
             throw new InvalidDataException();
         }
-        employeeNumber = Integer.parseInt(data[0]);
+        try {
+            employeeNumber = Integer.parseInt(data[0]);
+        }catch(Exception e){
+            throw new InvalidDataException();
+        }
+        boolean validData = true;
+
         birthDate = data[7];
+        if(!data[7].matches("\\d?\\d/\\d?\\d/\\d\\d\\d\\d"))
+            validData = false;
+
         firstName = data[2];
+        if(!data[2].matches("[A-Za-z\s-]+"))
+            validData = false;
+
         lastName = data[4];
+        if(!data[4].matches("[A-Za-z\s-]+"))
+            validData = false;
+
         gender = data[5];
+        if(!true) // all genders are valid >:V
+            validData = false;
+
         hireDate = data[8];
+        if(!data[8].matches("\\d?\\d/\\d?\\d/\\d\\d\\d\\d"))
+            validData = false;
+        if(!validData)
+            throw new InvalidDataException();
     }
 
     public int getEmployeeNumber() {
