@@ -1,0 +1,151 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > MenuResponse</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.sparta.group3.controller</a>
+</div>
+
+<h1>Coverage Summary for Class: MenuResponse (com.sparta.group3.controller)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MenuResponse</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">MenuResponse$ResponseCode</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.sparta.group3.controller;
+&nbsp;
+&nbsp;public class MenuResponse {
+<b class="nc">&nbsp;    public static enum ResponseCode{</b>
+<b class="nc">&nbsp;        OK,</b>
+<b class="nc">&nbsp;        NOT_FOUND,</b>
+<b class="nc">&nbsp;        FALSE,</b>
+<b class="nc">&nbsp;        BAD_REQUEST,</b>
+<b class="nc">&nbsp;        ADDITIONAL_INFO_REQUIRED</b>
+&nbsp;    };
+&nbsp;    final public ResponseCode feedbackCode;
+&nbsp;    final public String responseMessage;
+<b class="nc">&nbsp;    public MenuResponse(ResponseCode feedbackCode, String responseMessage){</b>
+<b class="nc">&nbsp;        this.feedbackCode = feedbackCode;</b>
+<b class="nc">&nbsp;        this.responseMessage = responseMessage;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    public MenuResponse(ResponseCode feedbackCode){</b>
+<b class="nc">&nbsp;        this.feedbackCode = feedbackCode;</b>
+<b class="nc">&nbsp;        this.responseMessage = &quot;&quot;;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-04-02 21:32</div>
+</div>
+</body>
+</html>

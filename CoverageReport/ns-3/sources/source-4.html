@@ -1,0 +1,183 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > EmployeeList</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.sparta.group3.model</a>
+</div>
+
+<h1>Coverage Summary for Class: EmployeeList (com.sparta.group3.model)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">EmployeeList</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    62.5%
+  </span>
+  <span class="absValue">
+    (5/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    24.4%
+  </span>
+  <span class="absValue">
+    (11/45)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.sparta.group3.model;
+&nbsp;
+&nbsp;import java.util.*;
+&nbsp;
+&nbsp;import com.sparta.group3.Main;
+&nbsp;import com.sparta.group3.model.Exceptions.InvalidDataException;
+&nbsp;import org.apache.logging.log4j.LogManager;
+&nbsp;import org.apache.logging.log4j.Logger;
+&nbsp;
+&nbsp;public class EmployeeList {
+<b class="fc">&nbsp;    private static final Logger logger = LogManager.getLogger(EmployeeList.class);</b>
+&nbsp;    private final List&lt;Employee&gt; employees;
+&nbsp;
+<b class="nc">&nbsp;    public EmployeeList() {</b>
+<b class="nc">&nbsp;        employees = new ArrayList&lt;Employee&gt;();</b>
+&nbsp;    }
+&nbsp;
+<b class="fc">&nbsp;    public EmployeeList(String[] employeeData) {</b>
+<b class="fc">&nbsp;        employees = new ArrayList&lt;&gt;();</b>
+<b class="fc">&nbsp;        for(String individual : employeeData){</b>
+&nbsp;            try {
+<b class="fc">&nbsp;                Employee employee = new Employee(individual);</b>
+<b class="fc">&nbsp;                employees.add(employee);</b>
+<b class="nc">&nbsp;            }catch(InvalidDataException e){</b>
+<b class="nc">&nbsp;                logger.debug(&quot;Could not convert string to Employee:\n \&quot;&quot; + individual + &quot;\&quot;&quot;);</b>
+<b class="fc">&nbsp;            }</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public Employee getEmployee(int i){
+<b class="fc">&nbsp;        return employees.get(i);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Employee[] getEmployees(){
+<b class="fc">&nbsp;        return employees.toArray(Employee[]::new);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void addEmployee(Employee employee) {
+<b class="fc">&nbsp;        if(employee == null) throw new NullPointerException(&quot;Null Pointer Exception. Please enter valid data.&quot;);</b>
+<b class="fc">&nbsp;        employees.add(employee); }</b>
+&nbsp;
+&nbsp;    public void printEmployees() {
+<b class="nc">&nbsp;        employees.forEach(System.out::println);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public String toString(){
+<b class="nc">&nbsp;        StringBuilder s = new StringBuilder();</b>
+<b class="nc">&nbsp;        s.append(&quot;[\n&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        for(int i = 0; i &lt; employees.size(); i++){</b>
+<b class="nc">&nbsp;            Employee employee = employees.get(i);</b>
+<b class="nc">&nbsp;            s.append(&quot;{\n&quot;);</b>
+<b class="nc">&nbsp;            s.append(&quot;\t\&quot;employeeId\&quot;:&quot;);</b>
+<b class="nc">&nbsp;            s.append(employee.getEmployeeNumber());</b>
+<b class="nc">&nbsp;            s.append(&quot;,\n&quot;);</b>
+<b class="nc">&nbsp;            s.append(&quot;\t\&quot;birthDate\&quot;:\&quot;&quot;);</b>
+<b class="nc">&nbsp;            s.append(employee.getBirthDate());</b>
+<b class="nc">&nbsp;            s.append(&quot;\&quot;,\n\t&quot;);</b>
+<b class="nc">&nbsp;            s.append(&quot;\&quot;firstName\&quot;:\&quot;&quot;);</b>
+<b class="nc">&nbsp;            s.append(employee.getFirstName());</b>
+<b class="nc">&nbsp;            s.append(&quot;\&quot;,\n\t&quot;);</b>
+<b class="nc">&nbsp;            s.append(&quot;\&quot;lastName\&quot;:\&quot;&quot;);</b>
+<b class="nc">&nbsp;            s.append(employee.getLastName());</b>
+<b class="nc">&nbsp;            s.append(&quot;\&quot;,\n\t&quot;);</b>
+<b class="nc">&nbsp;            s.append(&quot;\&quot;gender\&quot;:\&quot;&quot;);</b>
+<b class="nc">&nbsp;            s.append(employee.getGender());</b>
+<b class="nc">&nbsp;            s.append(&quot;\&quot;,\n\t&quot;);</b>
+<b class="nc">&nbsp;            s.append(&quot;\&quot;hireDate\&quot;:\&quot;&quot;);</b>
+<b class="nc">&nbsp;            s.append(employee.getHireDate());</b>
+<b class="nc">&nbsp;            s.append(&quot;\&quot;\n&quot;);</b>
+<b class="nc">&nbsp;            s.append(&quot;}&quot;);</b>
+<b class="nc">&nbsp;            if(i != employees.size() - 1)</b>
+<b class="nc">&nbsp;                s.append(&quot;,&quot;);</b>
+<b class="nc">&nbsp;            s.append(&quot;\n&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        s.append(&quot;]&quot;);</b>
+<b class="nc">&nbsp;        return s.toString();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-04-02 21:32</div>
+</div>
+</body>
+</html>

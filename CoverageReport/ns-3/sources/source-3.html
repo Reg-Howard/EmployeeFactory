@@ -1,0 +1,128 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > EmployeeFactory</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.sparta.group3.model</a>
+</div>
+
+<h1>Coverage Summary for Class: EmployeeFactory (com.sparta.group3.model)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">EmployeeFactory</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    88.9%
+  </span>
+  <span class="absValue">
+    (8/9)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.sparta.group3.model;
+&nbsp;
+&nbsp;import java.io.*;
+&nbsp;import java.util.*;
+&nbsp;
+<b class="nc">&nbsp;public class EmployeeFactory {</b>
+&nbsp;    // returns an array containing numEmployees Strings, each representing an Employee as a row from the CSV file
+&nbsp;    // 1 &lt;= numEmployees &lt;= 1000
+&nbsp;    // may throw IOExceptions, which need to be dealt with in the client code
+&nbsp;    // employees.csv should be in the src/main/resources folder in the project
+&nbsp;    public static String[] getEmployees(int numEmployees) throws IOException {
+<b class="fc">&nbsp;        if (numEmployees &lt; 1 || numEmployees &gt; 1000)</b>
+<b class="fc">&nbsp;            throw new IllegalArgumentException(&quot;Argument &#39;numEmployees&#39; must be between 1 and 1000&quot;);</b>
+&nbsp;        String employeeLine;
+<b class="fc">&nbsp;        List&lt;String&gt; result = new ArrayList&lt;&gt;();</b>
+<b class="fc">&nbsp;        BufferedReader f = new BufferedReader(new FileReader(&quot;src/main/resources/employees.csv&quot;));</b>
+&nbsp;        // read all the records from the file and add them to the list
+<b class="fc">&nbsp;        while ((employeeLine = f.readLine()) != null)</b>
+<b class="fc">&nbsp;            result.add(employeeLine);</b>
+&nbsp;        // randomise
+<b class="fc">&nbsp;        Collections.shuffle(result);</b>
+&nbsp;        // return the first numEmployees values as an array
+<b class="fc">&nbsp;        return result.subList(0,numEmployees).toArray(new String[0]);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-04-02 21:32</div>
+</div>
+</body>
+</html>
