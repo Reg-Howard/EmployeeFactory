@@ -14,14 +14,14 @@ mvn install
 java -cp target/EmployeeFactory-1.0-SNAPSHOT.jar com.sparta.group3.Main
 ```
 # Project Roles: <br />
-- Scrum Lead: Reggie
-- GitHub Lead: Abu
-- Dev/tester: Nick
-- Dev/tester: Greg
-- Dev/tester: Usman
-- Dev/tester: Ajay
+- Scrum Lead:  &emsp;&emsp;&emsp;&emsp;&emsp;      Reggie Howard         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;        RHoward@spartaglobal.com
+- GitHub Lead: &emsp;&emsp;&emsp;&emsp;&emsp;      Abubaker Muhammad     &emsp;&emsp;&emsp;                          AMuhammad@spartaglobal.com
+- Subject-Matter-Expert:               &emsp;      Nicholas Thom         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;        NThom@spartaglobal.com
+- Dev/tester: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Muhammad Usman Rizwan&emsp;                                      MRizwan@spartaglobal.com
+- Dev/tester: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Ajay Balakrishnan &emsp;&emsp;&emsp;&emsp;&emsp; ABalakrishnan@spartaglobal.com
+- Dev/tester: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Grzegorz Urbanik  GUrbanik@spartaglobal.com            
 
-# Details of the Major Sections Functionality
+# Details of the Functionality in Major Sections
 ## BinarySearchTree: <br />
 [BinarySearchTree.java](https://github.com/bakar212/EmployeeFactory/blob/Dev-Branch/src/main/java/com/sparta/room3/model/BinarySearchTree.java) <br />
 Our binary search tree accepts and sorts any object that implements the Comparable interface. It has three constructors, one with no parameters, one that allows specification of the root node's value, and then one that just takes a list of objects. <br>
@@ -34,23 +34,23 @@ If the root node has no value the object passed in will fill the root node, othe
 addElements(List<T> elements);
 ```
 If the root node has no value the first in the list will fill the root node. All other objects in the list will be placed recursively in our tree structure.
-#### we also have a wide array of getter methods:
+#### We also have a wide array of getter methods:
 ```java
 public Comparable<T> getRootElement();
 ```
-Gets the root element
+Gets the root element.
 ```java
 public int getNumberOfElements();
 ```
-Returns the number of objects stored within the tree
+Returns the number of objects stored within the tree.
 ```java
 public Comparable<T> findElement(T value);
 ```
-Returns an element if there is a match
+Returns an element if there is a match.
 ```java
 public Object[] findElements(T value);
 ```
-Returns all matched elements
+Returns all matched elements.
 ```java
 public T getLeftChild(T element);
 ```
@@ -62,15 +62,15 @@ If a match is found for the given element it returns the value of the child node
 ```java
 public Object[] getSortedTreeAsc();
 ```
-Returns an Object array of all of the objects stored within the tree in ascending order.
+Returns an Object array of all the objects stored within the tree in ascending order.
 ```java
 public Object[] getSortedTreeDesc();
 ```
-Returns an Object array of all of the objects stored within the tree in decending order.
+Returns an Object array of all the objects stored within the tree in descending order.
 ## EmployeeTreeDecorator <br />
 [EmployeeTreeDecorator.java](https://github.com/bakar212/EmployeeFactory/blob/Dev-Branch/src/main/java/com/sparta/room3/model/EmployeeTreeDecorator.java) <br />
-Our EmployeeTreeDecorator is a class that we made because generics has some limitations which really gave us the choice between greatly limiting reusability of our BinarySearchTree class or using the Decorator design patter. We opted for the latter. Our decorator class employs all of the same public methods as the BinarySearchTree class, but delegates the heavy thinking to BinarySearchTree while giving us the return types and ease of use that our client requires. Take the findElement() method for example: <br />
-#### Inside of the BinarySearchTree class: <br />
+Our EmployeeTreeDecorator is a class that we made because generics has some limitations which really gave us the choice between greatly limiting re-usability of our BinarySearchTree class or using the Decorator design patter. We opted for the latter. Our decorator class employs all the same public methods as the BinarySearchTree class, but delegates the heavy thinking to BinarySearchTree while giving us the return types and ease of use that our client requires. Take the findElement() method for example: <br />
+#### Inside the BinarySearchTree class: <br />
 ```java
 public Comparable<T> findElement(T value) {
   return findElement(root, value);
