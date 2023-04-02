@@ -1,7 +1,9 @@
 package com.sparta.group3;
 
-public class MainControllerChecks {
-    
+//import com.sparta.room3.view.*;
+
+public class ViewChecks {
+
 //    @Test
 //    @DisplayName("Test")
 //    void test() {
