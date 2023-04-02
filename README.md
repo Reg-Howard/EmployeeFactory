@@ -25,7 +25,7 @@ java -cp target/EmployeeFactory-1.0-SNAPSHOT.jar com.sparta.group3.Main
 
 # Details of the Functionality in Major Sections
 ## BinarySearchTree: <br />
-[BinarySearchTree.java](https://github.com/bakar212/EmployeeFactory/blob/Dev-Branch/src/main/java/com/sparta/room3/model/BinarySearchTree.java) <br />
+[BinarySearchTree.java](https://github.com/bakar212/EmployeeFactory/blob/main/src/main/java/com/sparta/group3/model/BinarySearchTree.java) <br />
 Our binary search tree accepts and sorts any object that implements the Comparable interface. It has three constructors, one with no parameters, one that allows specification of the root node's value, and then one that just takes a list of objects. <br>
 #### In terms of setter methods we have:
 ```java
@@ -70,16 +70,16 @@ public Object[] getSortedTreeDesc();
 ```
 Returns an Object array of all the objects stored within the tree in descending order.
 ## Employee Class <br />
-[Employee.java](https://github.com/bakar212/EmployeeFactory/blob/Dev-Branch/src/main/java/com/sparta/group3/model/Employee.java) <br />
+[Employee.java](https://github.com/bakar212/EmployeeFactory/blob/main/src/main/java/com/sparta/group3/model/Employee.java) <br />
 class represents an individual employee object. It has private variables for employee number, birth date, first name, last name, gender, and hire date. The class has a constructor that takes employee data as a string and parses it to assign the values to the private variables. It throws an InvalidDataException if the input data is invalid.
 
 The class also has getters for each private variable and overrides the toString method to return formatted employee data. It also implements the Comparable interface to allow sorting of employees based on their last name and first name.
 
 ##  Employee List Class <br />
-[EmployeeList.java](https://github.com/bakar212/EmployeeFactory/blob/Dev-Branch/src/main/java/com/sparta/group3/model/EmployeeList.java) <br />
+[EmployeeList.java](https://github.com/bakar212/EmployeeFactory/blob/main/src/main/java/com/sparta/group3/model/EmployeeList.java) <br />
 The EmployeeList class is a collection of Employee objects stored in an ArrayList. It provides methods to add, retrieve, and print employees, as well as a constructor that takes an array of strings and creates an Employee object for each string in the array. It also overrides the toString method to return a JSON representation of the list of employees. The EmployeeList class follows the Single Responsibility Principle (SRP) by encapsulating the logic related to storing and retrieving employees in a separate class, and also follows the Open-Closed Principle (OCP) by allowing for extension by providing public methods for adding and retrieving employees.
 ## EmployeeTreeDecorator <br />
-[EmployeeTreeDecorator.java](https://github.com/bakar212/EmployeeFactory/blob/Dev-Branch/src/main/java/com/sparta/room3/model/EmployeeTreeDecorator.java) <br />
+[EmployeeTreeDecorator.java](https://github.com/bakar212/EmployeeFactory/blob/main/src/main/java/com/sparta/group3/model/EmployeeTreeDecorator.java) <br />
 Our EmployeeTreeDecorator is a class that we made because generics has some limitations which really gave us the choice between greatly limiting re-usability of our BinarySearchTree class or using the Decorator design patter. We opted for the latter. Our decorator class employs all the same public methods as the BinarySearchTree class, but delegates the heavy thinking to BinarySearchTree while giving us the return types and ease of use that our client requires. Take the findElement() method for example: <br />
 #### Inside the BinarySearchTree class: <br />
 ```java
@@ -104,6 +104,6 @@ public Employee findElement(String value) {
 
 # Summary of Testing <br />
 We used JUnit 5 in our program to unit test our classes. We primarily focused on the getters and setters of every class that we created, but we also made sure to check that exceptions are thrown where they should be. <br />
-You can see all of our tests here: [test package](https://github.com/bakar212/EmployeeFactory/tree/Dev-Branch/src/test/java/com/sparta/room3) <br />
+You can see all of our tests here: [test package](https://github.com/bakar212/EmployeeFactory/tree/main/src/test/java/com/sparta/group3) <br />
 # Glossary of Technical Concepts <br />
 [docs.oracle.com Generics](https://docs.oracle.com/javase/tutorial/java/generics/index.html), [refactoring.guru Decorator Design Pattern](https://refactoring.guru/design-patterns/decorator), [docs.oracle.com Nested Classes](https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html), [JUnit 5](https://junit.org/junit5/), [Maven](https://maven.apache.org/), [docs.oracle.com Scanner](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html)
