@@ -17,7 +17,7 @@ public class Main {
     private static final Logger logger = LogManager.getLogger(Main.class);
     public static void main(String[] args) throws IOException {
         try {
-            int n = 19;
+            int n = 8;
             String[] employeeData = EmployeeFactory.getEmployees(n);
             EmployeeList employees = new EmployeeList(employeeData);
             List<Employee> employeeList = List.of(employees.getEmployees());
