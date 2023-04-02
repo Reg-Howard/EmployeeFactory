@@ -2,19 +2,28 @@ package com.sparta.group3.model;
 
 import java.util.*;
 
+import com.sparta.group3.Main;
 import com.sparta.group3.model.Exceptions.InvalidDataException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class EmployeeList {
+    private static final Logger logger = LogManager.getLogger(EmployeeList.class);
     private final List<Employee> employees;
 
     public EmployeeList() {
         employees = new ArrayList<Employee>();
     }
 
-    public EmployeeList(String[] employeeData) throws InvalidDataException {
+    public EmployeeList(String[] employeeData) {
         employees = new ArrayList<>();
         for(String individual : employeeData){
-            employees.add(new Employee(individual));
+            try {
+                Employee employee = new Employee(individual);
+                employees.add(employee);
+            }catch(InvalidDataException e){
+                logger.debug("Could not convert string to Employee:\n \"" + individual + "\"");
+            }
         }
     }
 

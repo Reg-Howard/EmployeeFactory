@@ -41,20 +41,28 @@ public class Controller {
                     StringBuilder responseMessage = new StringBuilder();
                     for(Employee employee : results)
                         responseMessage.append(employee.toString()).append("\n");
+                    if(responseMessage.isEmpty())
+                        return new MenuResponse(MenuResponse.ResponseCode.NOT_FOUND, "No results found");
                     return new MenuResponse(MenuResponse.ResponseCode.OK, responseMessage.toString());
                 case 1:
                     results = tree.getSortedTreeDesc();
                     responseMessage = new StringBuilder();
                     for(Employee employee : results)
                         responseMessage.append(employee.toString()).append("\n");
+                    if(responseMessage.isEmpty())
+                        return new MenuResponse(MenuResponse.ResponseCode.NOT_FOUND, "No results found");
                     return new MenuResponse(MenuResponse.ResponseCode.OK, responseMessage.toString());
                 case 2:
                     if(additionalInfo.equals(""))
                         return new MenuResponse(MenuResponse.ResponseCode.ADDITIONAL_INFO_REQUIRED, x + ";Please enter last name:");
                     else {
                         Employee result = tree.findElement(additionalInfo);
-                        String message = result == null ? "" : result.toString();
-                        return new MenuResponse(MenuResponse.ResponseCode.OK, message);
+                        String message = result == null ? "No result found" : result.toString();
+                        if(result == null){
+                            return new MenuResponse(MenuResponse.ResponseCode.NOT_FOUND, message);
+                        }else {
+                            return new MenuResponse(MenuResponse.ResponseCode.OK, message);
+                        }
                     }
                 case 3:
                     return new MenuResponse(MenuResponse.ResponseCode.OK, ""+tree.getNumberOfElements());
@@ -63,8 +71,12 @@ public class Controller {
                         return new MenuResponse(MenuResponse.ResponseCode.ADDITIONAL_INFO_REQUIRED, x + ";Please enter last name:");
                     else {
                         Employee result = tree.getRightChildValue(additionalInfo);
-                        String message = result == null ? "" : result.toString();
-                        return new MenuResponse(MenuResponse.ResponseCode.OK, message);
+                        String message = result == null ? "No result found" : result.toString();
+                        if(result == null){
+                            return new MenuResponse(MenuResponse.ResponseCode.NOT_FOUND, message);
+                        }else {
+                            return new MenuResponse(MenuResponse.ResponseCode.OK, message);
+                        }
                     }
                 case 5:
                     if(additionalInfo.equals(""))

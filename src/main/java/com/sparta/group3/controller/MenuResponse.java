@@ -8,8 +8,8 @@ public class MenuResponse {
         BAD_REQUEST,
         ADDITIONAL_INFO_REQUIRED
     };
-    public ResponseCode feedbackCode;
-    public String responseMessage;
+    final public ResponseCode feedbackCode;
+    final public String responseMessage;
     public MenuResponse(ResponseCode feedbackCode, String responseMessage){
         this.feedbackCode = feedbackCode;
         this.responseMessage = responseMessage;
@@ -17,5 +17,6 @@ public class MenuResponse {
 
     public MenuResponse(ResponseCode feedbackCode){
         this.feedbackCode = feedbackCode;
+        this.responseMessage = "";
     }
 }
