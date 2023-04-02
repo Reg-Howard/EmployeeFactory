@@ -14,12 +14,14 @@ mvn install
 java -cp target/EmployeeFactory-1.0-SNAPSHOT.jar com.sparta.group3.Main
 ```
 # Project Roles: <br />
-- Scrum Lead:  &emsp;&emsp;&emsp;&emsp;&emsp;      Reggie Howard         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;        RHoward@spartaglobal.com
-- GitHub Lead: &emsp;&emsp;&emsp;&emsp;&emsp;      Abubaker Muhammad     &emsp;&emsp;&emsp;                          AMuhammad@spartaglobal.com
-- Subject-Matter-Expert:               &emsp;      Nicholas Thom         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;        NThom@spartaglobal.com
-- Dev/tester: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Muhammad Usman Rizwan&emsp;                                      MRizwan@spartaglobal.com
-- Dev/tester: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Ajay Balakrishnan &emsp;&emsp;&emsp;&emsp;&emsp; ABalakrishnan@spartaglobal.com
-- Dev/tester: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Grzegorz Urbanik  GUrbanik@spartaglobal.com            
+| Role                  |   Contributer         |           Email                |
+|  :---:                |      :---:            |             :---:              |
+| Scrum Lead            | Reggie Howard         | RHoward@spartaglobal.com       |
+| GitHub Lead           | Abubaker Muhammad     | AMuhammad@spartaglobal.com     |
+| Subject-Matter-Expert | Nicholas Thom         | NThom@spartaglobal.com         |
+| Dev/tester            | Muhammad Usman Rizwan | MRizwan@spartaglobal.com       |
+| Dev/tester            | Ajay Balakrishnan     | ABalakrishnan@spartaglobal.com |
+| Dev/tester            | Grzegorz Urbanik      | GUrbanik@spartaglobal.com      |           
 
 # Details of the Functionality in Major Sections
 ## BinarySearchTree: <br />
