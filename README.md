@@ -15,7 +15,7 @@ java -cp target/EmployeeFactory-1.0-SNAPSHOT.jar com.sparta.group3.Main
 ```
 # Project Roles: <br />
 | Role                  |   Contributer         |           Email                |
-|  :---:                |      :---             |             :--                |
+|  :---:                |      :---:            |             :---:              |
 | Scrum Lead            | Reggie Howard         | RHoward@spartaglobal.com       |
 | GitHub Lead           | Abubaker Muhammad     | AMuhammad@spartaglobal.com     |
 | Subject-Matter-Expert | Nicholas Thom         | NThom@spartaglobal.com         |
