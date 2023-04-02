@@ -41,7 +41,7 @@ public class BinarySearchTree<T extends Comparable> implements BinaryTree<T>{
     private int childCount = 0;
 
     public BinarySearchTree(){
-
+        root = new Node<T>();
     }
 
     public BinarySearchTree(T rootValue){
