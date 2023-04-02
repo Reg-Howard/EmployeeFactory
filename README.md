@@ -70,7 +70,7 @@ public Object[] getSortedTreeDesc();
 ```
 Returns an Object array of all the objects stored within the tree in descending order.
 ## Employee Class <br />
-[EmployeeList.java](https://github.com/bakar212/EmployeeFactory/blob/Dev-Branch/src/main/java/com/sparta/group3/model/Employee.java) <br />
+[Employee.java](https://github.com/bakar212/EmployeeFactory/blob/Dev-Branch/src/main/java/com/sparta/group3/model/Employee.java) <br />
 class represents an individual employee object. It has private variables for employee number, birth date, first name, last name, gender, and hire date. The class has a constructor that takes employee data as a string and parses it to assign the values to the private variables. It throws an InvalidDataException if the input data is invalid.
 
 The class also has getters for each private variable and overrides the toString method to return formatted employee data. It also implements the Comparable interface to allow sorting of employees based on their last name and first name.

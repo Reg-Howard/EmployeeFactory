@@ -3,6 +3,10 @@ package com.sparta.group3;
 import com.sparta.group3.model.Exceptions.InvalidDataException;
 import com.sparta.group3.model.*;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ArgumentsSources;
+import org.junit.jupiter.params.provider.ValueSource;
+
 import java.util.List;
 
 public class EmployeeFactoryChecks {
@@ -249,6 +253,21 @@ public class EmployeeFactoryChecks {
         Assertions.assertTrue(employeeTwo.compareTo(employeeThree) == 0);
         Assertions.assertTrue(employeeFour.compareTo(employeeOne) == 0);
         Assertions.assertTrue(employeeTwo.compareTo(employeeOne) > 0);
+    }
+
+    @ParameterizedTest
+    @DisplayName("Checking invalid data against Regular Expression Checks to throw InvalidDataException")
+    @ValueSource(
+            strings = {"433171,Hon.,Freddy,M,Wilkinson,M,freddy.wilkinson@hotmail.com,7/1f/1969,10/08/1997,122378",
+                       "237946,Prof.,Garfield,P,Cagle<,M,garfield.cagle@gmail.com,2/19/1993,12/15/2015,135528",
+                       "961f360,Ms.,Hattie,M,Ferrer,F,hattie.ferrer@gmail.com,10/12/1961,1/23/1987,100567",
+                       "430558,Mr.,Omar,R,Borrego,M,omar.borrego@gmail.com,11/05/1994,05/03/2a17,96780",
+                       "620892,Mr.,Louis>,S,Mccusker,M,louis.mccusker@microsoft.com,06/03/1986,04/04/2008,151695",
+                       "Emp ID,Name Prefix,First Name,Middle Initial,Last Name,Gender,E Mail,Date of Birth,Date of Joining,Salary"
+            }
+    )
+    void checkingInvalidDataAgainstRegularExpressionChecksToThrowInvalidDataException(String strings) {
+        Assertions.assertThrows(InvalidDataException.class,() -> new Employee(strings));
     }
     // End of checking for Employee.java file.
 
