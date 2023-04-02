@@ -31,8 +31,8 @@ public class Controller {
                 "Get employees sorted by last name descending",
                 "Get employee with a given last name",
                 "Get number of employees",
-                "Get employee after another (alphabetically)",
-                "Get employee before another (alphabetically)",
+                "Get next employee in alphabetical order",
+                "Get previous employee in alphabetical order",
                 "Get all employees with a given last name",
                 "Get first employee listed"}, (x, additionalInfo)->{
             switch(x){
