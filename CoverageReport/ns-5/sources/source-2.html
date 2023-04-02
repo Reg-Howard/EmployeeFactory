@@ -1,0 +1,154 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Menu</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.sparta.group3.view</a>
+</div>
+
+<h1>Coverage Summary for Class: Menu (com.sparta.group3.view)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Menu</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/22)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.sparta.group3.view;
+&nbsp;
+&nbsp;import com.sparta.group3.controller.MenuAction;
+&nbsp;import com.sparta.group3.controller.MenuResponse;
+&nbsp;
+&nbsp;public class Menu {
+&nbsp;    private final String[] menu;
+&nbsp;    MenuAction action;
+<b class="nc">&nbsp;    public Menu(String[] menu, MenuAction action){</b>
+<b class="nc">&nbsp;        this.menu = menu.clone();</b>
+<b class="nc">&nbsp;        this.action = action;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public MenuAction getMenuAction(){
+<b class="nc">&nbsp;        return action;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public MenuResponse handleAction(String input, String additionalInfo){
+<b class="nc">&nbsp;       return action.performAction(getMenuSelection(input), additionalInfo);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private int getMenuSelection(String input){
+<b class="nc">&nbsp;        int selection = -1;</b>
+&nbsp;        try{
+<b class="nc">&nbsp;            int numberSelection = Integer.parseInt(input);</b>
+<b class="nc">&nbsp;            if(numberSelection &gt;= 0 &amp;&amp; numberSelection &lt; menu.length){</b>
+<b class="nc">&nbsp;                selection = numberSelection;</b>
+&nbsp;            }
+<b class="nc">&nbsp;        }catch(Exception e){</b>
+<b class="nc">&nbsp;            if(input.matches(&quot;^[\sA-Za-z()-]+$&quot;)) {</b>
+<b class="nc">&nbsp;                for (int i = 0; i &lt; menu.length; i++) {</b>
+<b class="nc">&nbsp;                    if (menu[i].equals(input)){</b>
+<b class="nc">&nbsp;                        selection = i;</b>
+<b class="nc">&nbsp;                        break;</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;            }
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        return selection;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public String toString(){
+<b class="nc">&nbsp;        StringBuilder menuOptions = new StringBuilder();</b>
+<b class="nc">&nbsp;        for(int i = 0; i &lt; menu.length; i++){</b>
+<b class="nc">&nbsp;            menuOptions.append(&quot;[&quot; + i + &quot;] &quot; + menu[i]);</b>
+<b class="nc">&nbsp;            if(i &lt; menu.length - 1) menuOptions.append(&quot;\n&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return menuOptions.toString();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-04-02 21:32</div>
+</div>
+</body>
+</html>
