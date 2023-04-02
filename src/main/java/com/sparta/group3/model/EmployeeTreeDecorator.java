@@ -13,7 +13,6 @@ public class EmployeeTreeDecorator {
         return (Employee) tree.getRootElement();
     }
 
-
     public int getNumberOfElements() {
         return tree.getNumberOfElements();
     }

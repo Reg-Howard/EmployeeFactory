@@ -303,11 +303,11 @@ public class EmployeeFactoryChecks {
     @Test
     @DisplayName("Check that the getSortedTreeDesc method returns an employee object")
     void checkThatTheGetSortedTreeDescMethodReturnsAnEmployeeObject() {
-        Assertions.assertEquals(Employee.class,sampleETD.getSortedTreeDesc().getClass());
+        Assertions.assertEquals(Employee[].class,sampleETD.getSortedTreeDesc().getClass());
     }
     @Test
     @DisplayName("Check that the getSortedTreeAsc method returns an employee object")
     void checkThatTheGetSortedTreeAscMethodReturnsAnEmployeeObject() {
-        Assertions.assertEquals(Employee.class,sampleETD.getSortedTreeAsc().getClass());
+        Assertions.assertEquals(Employee[].class,sampleETD.getSortedTreeAsc().getClass());
     }
 }
