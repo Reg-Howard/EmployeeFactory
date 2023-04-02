@@ -1,8 +1,6 @@
 package com.sparta.group3;
 
-//import com.sparta.room3.view.*;
-
-public class ScannerViewChecks {
+public class MainChecks {
 
 //    @Test
 //    @DisplayName("Test")

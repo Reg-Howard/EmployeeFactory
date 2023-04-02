@@ -39,16 +39,13 @@ public class EmployeeFactoryChecks {
             e.printStackTrace();
         }
     }
+
     /*
-    TEST CASES STILL TO BE WRITTEN:
+      CHECKING FOR EmployeeFactory.java FILE.
 
-    Empty check for Employee
-    Empty check for Employee List
-    Null check for Employee List
-    Test for graceful handling of getEmployees method with over 1000 points of data
-    Check compareTo method for null data handling
-    Check firstName data is entered as expected
+      CHECKS STILL TO BE CREATED:
 
+      N/A
      */
     @Test/*TEST FOR Phase 1 - 3 / Use Case 1*/
     @DisplayName("Check data is being loaded from the csv and stored in a String array")
@@ -66,7 +63,24 @@ public class EmployeeFactoryChecks {
         var message = Assertions.assertThrows(IllegalArgumentException.class, ()->EmployeeFactory.getEmployees(0), "Exception expected, got none");
         Assertions.assertEquals("Argument 'numEmployees' must be between 1 and 1000", message.getMessage());
     }
+    // End of checking for Employee.java file.
 
+    /*
+      CHECKING FOR Employee.java FILE.
+
+      CHECKS STILL TO BE CREATED:
+
+      Empty check for Employee.
+
+      Empty check for Employee List.
+      Null check for Employee List.
+
+      Test for graceful handling of getEmployees method with over 1000 points of data.
+
+      Check compareTo method for null data handling.
+
+      Check firstName data is entered as expected.
+     */
     @Test /*TEST FOR Phase 1 - 4 / Use Case 1*/
     @DisplayName("Adding a null employee should throw an exception")
     public void testAddNullEmployee() throws InvalidDataException {//can you create a class file "InvalidDataException.java" in the com.sparta.room3.model package?
@@ -75,7 +89,6 @@ public class EmployeeFactoryChecks {
         var message = Assertions.assertThrows(NullPointerException.class, ()-> list.addEmployee(null), "Expected exception, threw none");
         Assertions.assertEquals("Null Pointer Exception. Please enter valid data.", message.getMessage());
     }
-
     @Test /*TEST FOR Phase 1 - 4 / Use Case 1*/
     @DisplayName("Check that employee constructor creates an employee object")
     void checkEmployeeConstructor() {
@@ -154,6 +167,7 @@ public class EmployeeFactoryChecks {
         Employee employee = new Employee("647173,Mr.,Milan,F,Krawczyk,M,milan.krawczyk@hotmail.com,04/04/1980,1/19/2012,123681");
         Assertions.assertEquals("M", employee.getGender());
     }
+
     @Test /*TEST FOR Phase 1 - 4 / Use Case Undefined*/
     @DisplayName("Test that when we are given a blank first name that an exception gets thrown for invalid data")
     void testThatWhenWeAreGivenABlankFirstNameFromCSVExceptionGetsThrownInvalidData(){
@@ -196,6 +210,7 @@ public class EmployeeFactoryChecks {
         var message = Assertions.assertThrows(InvalidDataException.class, ()->new Employee("198429,Mrs.,Serafina,I,Bumgarner,F,serafina.bumgarner@exxonmobil.com,9/21/1982,,69294"), "Everything worked fine!");
         Assertions.assertEquals("Invalid data detected, missing value", message.getMessage());
     }
+
     @Test /*TEST FOR Phase 3 - Undefined / Use Case Undefined*/
     @DisplayName("Tests the toString method of the employee class, to ensure a string is returned")
     void checkEmployeeToStringMethodReturnsAString(){
@@ -220,6 +235,7 @@ public class EmployeeFactoryChecks {
         Employee newlyCreatedEmployee = new Employee("8675309,Mrs.,Jane,I,Doe,F,serafina.bumgarner@somewhere.com,9/21/1982,02/01/2008,69294");
         Assertions.assertTrue(newlyCreatedEmployee.compareTo(latestInsert) == 0);
     }
+
     @Test /*TEST FOR Phase 3 - 3 / Use Case Undefined*/
     @DisplayName("Ensure that the compareTo method compares employees by last name and then by first name")
     void checkThatTheCompareToMethodOfTheEmployeeClassComparesEmployeesByLastNameFirstAndThenByFirstName() throws InvalidDataException{
@@ -234,16 +250,35 @@ public class EmployeeFactoryChecks {
         Assertions.assertTrue(employeeFour.compareTo(employeeOne) == 0);
         Assertions.assertTrue(employeeTwo.compareTo(employeeOne) > 0);
     }
+    // End of checking for Employee.java file.
 
+    /*
+      CHECKING FOR EmployeeList.java FILE.
+
+      CHECKS STILL TO BE CREATED:
+
+      N/A
+     */
     @Test /*TEST FOR Phase 3 - 3 / Use Case Undefined*/
     @DisplayName("Check That The getEmployee Method Of The employeeList Gets The Correct Employee")
     void checkThatTheGetEmployeeMethodOfTheEmployeeListGetsTheCorrectEmployee()throws InvalidDataException{
         EmployeeList list = new EmployeeList(genericSampleData);
         Assertions.assertEquals(list.getEmployee(2).getEmployeeNumber(), Integer.parseInt("647173"));
     }
+    // End of checking for EmployeeList.java file.
 
     /*
-    Testing for EmployeeTreeDecorator
+      CHECKING FOR EmployeeTreeDecorator.java FILE.
+
+      CHECKS STILL TO BE CREATED:
+
+      Check getSortedTreeDesc for expected output.
+      Check getSortedTreeDesc for empty output.
+      Check getSortedTreeDesc for null output.
+
+      Check getSortedTreeAsc for expected output.
+      Check getSortedTreeAsc for null output.
+      Check getSortedTreeAsc for empty output.
      */
     EmployeeTreeDecorator sampleETD;
     @BeforeEach
@@ -262,38 +297,43 @@ public class EmployeeFactoryChecks {
     void nullWillBeReturnedWhenAnExceptionWillBeThrownInTheGetLeftChildValueMethodWithPropertyData() {
         Assertions.assertEquals(null,sampleETD.getLeftChildValue(""));
     }
+
     @Test
     @DisplayName("Check that left child value is returned when getLeftChildValue method is run with property data")
     void checkThatLeftChildValueIsReturnedWhenGetLeftChildValueMethodIsRunWithPropertyData() {
         Assertions.assertEquals(Employee.class, sampleETD.getLeftChildValue("Rojo").getClass());
     }
+
     @Test
     @DisplayName("Null will be returned when an exception will be thrown in the getLeftChildValue method with object data")
     void nullWillBeReturnedWhenAnExceptionWillBeThrownInTheGetLeftChildValueMethodWithObjectData() {
         Assertions.assertEquals(null,sampleETD.getLeftChildValue(genericTestEmployee));
     }
+
     @Test
     @DisplayName("Check that left child value is returned when getLeftChildValue method is run with object data")
     void checkThatLeftChildValueIsReturnedWhenGetLeftChildValueMethodIsRunWithObjectData() {
         Assertions.assertEquals(Employee.class,sampleETD.getLeftChildValue(genericTestEmployee3).getClass());
     }
 
-
     @Test
     @DisplayName("Null will be returned when an exception will be thrown in the getRightChildValue method with property data")
     void nullWillBeReturnedWhenAnExceptionWillBeThrownInTheGetRightChildValueMethodWithPropertyData() {
         Assertions.assertEquals(null,sampleETD.getRightChildValue(""));
     }
+
     @Test
     @DisplayName("Check that right child value is returned when getRightChildValue method is run with property data")
     void checkThatRightChildValueIsReturnedWhenGetRightChildValueMethodIsRunWithPropertyData() {
         Assertions.assertEquals(Employee.class, sampleETD.getRightChildValue("Rojo").getClass());
     }
+
     @Test
     @DisplayName("Null will be returned when an exception will be thrown in the getRightChildValue method with object data")
     void nullWillBeReturnedWhenAnExceptionWillBeThrownInTheGetRightChildValueMethodWithObjectData() {
         Assertions.assertEquals(null,sampleETD.getRightChildValue(genericTestEmployee2));
     }
+
     @Test
     @DisplayName("Check that right child value is returned when getRightChildValue method is run with object data")
     void checkThatRightChildValueIsReturnedWhenGetRightChildValueMethodIsRunWithObjectData() {
@@ -305,9 +345,12 @@ public class EmployeeFactoryChecks {
     void checkThatTheGetSortedTreeDescMethodReturnsAnEmployeeObject() {
         Assertions.assertEquals(Employee[].class,sampleETD.getSortedTreeDesc().getClass());
     }
+
     @Test
     @DisplayName("Check that the getSortedTreeAsc method returns an employee object")
     void checkThatTheGetSortedTreeAscMethodReturnsAnEmployeeObject() {
         Assertions.assertEquals(Employee[].class,sampleETD.getSortedTreeAsc().getClass());
     }
+    // End of checking for EmployeeTreeDecorator.java file.
+
 }
