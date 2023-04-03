@@ -1,0 +1,216 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > EmployeeTreeDecorator</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.sparta.group3.model</a>
+</div>
+
+<h1>Coverage Summary for Class: EmployeeTreeDecorator (com.sparta.group3.model)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">EmployeeTreeDecorator</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    57.1%
+  </span>
+  <span class="absValue">
+    (8/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    58%
+  </span>
+  <span class="absValue">
+    (29/50)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.sparta.group3.model;
+&nbsp;
+&nbsp;import com.sparta.group3.model.Exceptions.InvalidDataException;
+&nbsp;import org.apache.logging.log4j.LogManager;
+&nbsp;import org.apache.logging.log4j.Logger;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;public class EmployeeTreeDecorator {
+<b class="fc">&nbsp;    private static final Logger logger = LogManager.getLogger(EmployeeTreeDecorator.class);</b>
+&nbsp;    private BinarySearchTree&lt;Employee&gt; tree;
+<b class="fc">&nbsp;    public EmployeeTreeDecorator(BinarySearchTree&lt;Employee&gt; tree){</b>
+<b class="fc">&nbsp;        this.tree = tree;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Employee getRootElement() {
+<b class="nc">&nbsp;        return (Employee) tree.getRootElement();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getNumberOfElements() {
+<b class="nc">&nbsp;        return tree.getNumberOfElements();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void addElement(Employee element) {
+<b class="nc">&nbsp;        tree.addElement(element);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void addElements(List&lt;Employee&gt; elements) {
+<b class="nc">&nbsp;        for(Employee element : elements){</b>
+<b class="nc">&nbsp;            tree.addElement(element);</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public Employee findElement(String value) {
+&nbsp;        try {
+<b class="nc">&nbsp;            Employee employee = new Employee(&quot;178566,Mrs.,Juliette,M,&quot; + value + &quot;,F,juliette.rojo@yahoo.co.uk,05/08/1967,06/04/2011,193912&quot;);</b>
+<b class="nc">&nbsp;            return (Employee) tree.findElement(employee);</b>
+<b class="nc">&nbsp;        }catch(InvalidDataException e){</b>
+<b class="nc">&nbsp;            logger.debug(e.getMessage());</b>
+<b class="nc">&nbsp;            return null;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public Employee[] findElements(String searchTarget){
+&nbsp;        try {
+<b class="nc">&nbsp;            Employee employee = new Employee(&quot;178566,Mrs.,Juliette,M,&quot; + searchTarget + &quot;,F,juliette.rojo@yahoo.co.uk,05/08/1967,06/04/2011,193912&quot;);</b>
+<b class="nc">&nbsp;            Object[] results = tree.findElements(employee);</b>
+<b class="nc">&nbsp;            if(results != null) {</b>
+<b class="nc">&nbsp;                Employee[] employees = new Employee[results.length];</b>
+<b class="nc">&nbsp;                System.arraycopy(results, 0, employees, 0, results.length);</b>
+<b class="nc">&nbsp;                return employees;</b>
+&nbsp;            }
+<b class="nc">&nbsp;            return new Employee[]{};</b>
+<b class="nc">&nbsp;        }catch(InvalidDataException e){</b>
+<b class="nc">&nbsp;            logger.debug(e.getMessage());</b>
+<b class="nc">&nbsp;            return new Employee[]{};</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public Employee[] getSortedTreeAsc() {
+<b class="fc">&nbsp;        Object[] results = tree.getSortedTreeAsc();</b>
+<b class="fc">&nbsp;        Employee[] employees = new Employee[results.length];</b>
+<b class="fc">&nbsp;        System.arraycopy(results, 0, employees, 0, results.length);</b>
+<b class="fc">&nbsp;        return employees;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Employee[] getSortedTreeDesc() {
+<b class="fc">&nbsp;        Object[] results = tree.getSortedTreeDesc();</b>
+<b class="fc">&nbsp;        Employee[] employees = new Employee[results.length];</b>
+<b class="fc">&nbsp;        System.arraycopy(results, 0, employees, 0, results.length);</b>
+<b class="fc">&nbsp;        return employees;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Employee getRightChildValue(Employee employee){
+&nbsp;        try {
+<b class="fc">&nbsp;            return tree.getRightChild(employee);</b>
+<b class="fc">&nbsp;        }catch(Exception e){</b>
+<b class="fc">&nbsp;            logger.debug(e.getMessage());</b>
+<b class="fc">&nbsp;            return null;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public Employee getRightChildValue(String employeeLastName){
+&nbsp;        try {
+<b class="fc">&nbsp;            Employee employee = new Employee(&quot;178566,Mrs.,Juliette,M,&quot; + employeeLastName + &quot;,F,juliette.rojo@yahoo.co.uk,05/08/1967,06/04/2011,193912&quot;);</b>
+<b class="fc">&nbsp;            return tree.getRightChild(employee);</b>
+<b class="fc">&nbsp;        }catch(Exception e){</b>
+<b class="fc">&nbsp;            logger.debug(e.getMessage());</b>
+<b class="fc">&nbsp;            return null;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public Employee getLeftChildValue(Employee employee){
+&nbsp;        try {
+<b class="fc">&nbsp;            return tree.getLeftChild(employee);</b>
+<b class="fc">&nbsp;        }catch(Exception e){</b>
+<b class="fc">&nbsp;            logger.debug(e.getMessage());</b>
+<b class="fc">&nbsp;            return null;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public Employee getLeftChildValue(String employeeLastName){
+&nbsp;        try {
+<b class="fc">&nbsp;            Employee employee = new Employee(&quot;178566,Mrs.,Juliette,M,&quot; + employeeLastName + &quot;,F,juliette.rojo@yahoo.co.uk,05/08/1967,06/04/2011,193912&quot;);</b>
+<b class="fc">&nbsp;            return tree.getLeftChild(employee);</b>
+<b class="fc">&nbsp;        }catch(Exception e){</b>
+<b class="fc">&nbsp;            logger.debug(e.getMessage());</b>
+<b class="fc">&nbsp;            return null;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-04-02 21:32</div>
+</div>
+</body>
+</html>

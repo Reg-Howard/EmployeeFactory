@@ -1,0 +1,38 @@
+PHASE 1:
+- add the provided resources to the project in appropriate directories/packages
+- add the employee.csv data to the resources folder
+- Call the EmployeeFactory.getEmployees(n) method to generate an array of random employee size
+- Ensure Employee data is represented as intended
+- Values for employee data should be separated within the string (parsing)
+- convert each element in the array into an Employee object given a suitable class has been written
+- Store these employee objects into a List (Suitable concrete Collection)
+PHASE 2:
+- Interface Contract
+- Recursion
+- main BST implementation
+- additional methods
+  - Created findAll method in BST etc
+ PHASE 3:
+- Provided data stored in List
+- Converted list to BST using a class we designed for that purpose with the last name being the key
+- Used a Nested class to represent a node in the tree
+- Tree allows multiple objects containing same lastName property
+- Allow the user to search for specific employees by last name in tree
+CONSISTENT REQUIREMENTS:
+- OOP
+- SOLID
+- MVC pattern
+- well known design patterns (DECORATOR & FACTORY PATTERNS)
+- "Comprehensive" ```JUnit``` testing >;v
+- "TDD Development"
+- demonstrated logging
+- exception handling
+- hosted on github
+- "Thoroughly" documented through README.md
+- Parse data into suitable data structure
+- Use ```Collections``` framework
+- Develop a collection class from scratch //Ask nick to clarify (pretty much anything you need clarification on tho)
+- Create and use a nested class
+- populate a binary tree from unsorted data
+- provide a user interface and searching capability
+- using interfaces >:L
